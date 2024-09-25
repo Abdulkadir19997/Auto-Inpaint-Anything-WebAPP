@@ -10,9 +10,6 @@ This WebApp is an open-source project aimed at automizing the process of Inpaint
 2. You can use the API endpoints independently after using the dino_sam endpoint. Example: Use the dino_sam endpoint to get the segment objects first then if you use the fill_anything endpoint it will automatically get the segmented result and do the changes you asked for in the fill_prompt.
 3. If you integrate the API's correctly, you can automize the process of doing Inpainting without human interaction for thousands of different images.
 
-Here is a simple example of removing unwanted objects in an image:
-![demo](images/remove_objects.gif)
-
 
 ### This web APP has 4 endpoints:
 1.**http://localhost:5004/app/demo/dino_sam:** This part is powered using [GroundingDino](https://huggingface.co/docs/transformers/en/model_doc/grounding-dino) for object detection and [SAM](https://github.com/facebookresearch/segment-anything) for segmentation, this part is the most essential part to run the other endpoints. Before running anyt other endpoint start by request.post to dino_sam. Any request to other endpoint will use the responsed data from the last request to dino_sam.
@@ -38,13 +35,13 @@ First you need to attach your image that you want to segment, and write the name
 
 <br>
 
-**Here is some examples obtained while testing the results:**
+**Here is some examples obtained while testing the results:** Fill the prompt and Push the Replace Background button
 ![Fill the prompt and Push the Replace Background button](images/replace.gif)
 
 
 4.**http://localhost:5004/app/demo/fill_anything:** This part is powered using the [stabilityai/stable-diffusion-2-inpainting](https://huggingface.co/stabilityai/stable-diffusion-2-inpainting), it changes the segmented part depending on waht you ask for in your prompt. Make sure to keep the value of dilation on the segmented image as 50 to get best reults, if you want to you can change the value from the config file. 
 
-**Here is some examples obtained while testing the results:**
+**Here is some examples obtained while testing the results:** Fill the prompt and Push the Change the object as you want button
 ![Fill the prompt and Push the Change the object as you want button](images/fill.gif)
 
 
@@ -97,7 +94,7 @@ git clone https://github.com/Abdulkadir19997/Auto-Inpaint-Anything-WebAPP.git
 
 ### Step 2: Create Python Environment
 
-Inside the downloaded 'Automated-Ipaint-Anything' folder, create a Python environment, **I used 3.10.12 version of python**. For example, to create an environment named 'auto_inpainter', use:
+Inside the downloaded 'Automated-Inpaint-Anything' folder, create a Python environment, **I used 3.10.12 version of python**. For example, to create an environment named 'auto_inpainter', use:
 
 ```bash
 python -m venv auto_inpainter
@@ -119,7 +116,7 @@ After confirming that the auto_inpainter environment is active, install all nece
 pip install -r requirements.txt
 ```
 
-### Step 5: Download the chckpoint models from the drive link
+### Step 5: Download the checkpoint models from the drive link
 Download the model checkpoints:
 1. Download the SAM sam_vit_h_4b8939.pth and the big-lama models from the given drive [pretrained_models](https://drive.google.com/drive/folders/1wpY-upCo4GIW4wVPnlMh_ym779lLIG2A?usp=sharing) 
 2. Put both of them into `inpaint_anything/pretrained_models` folder (remember to extract the downloaded big-lama.zip file).
