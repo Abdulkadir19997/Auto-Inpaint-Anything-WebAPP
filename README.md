@@ -4,7 +4,7 @@ This WebApp is an open-source project aimed at automizing the process of Inpaint
 
 It was inspired by [Inpaint-Anything](https://github.com/geekyutao/Inpaint-Anything). 
 
-![Inpaint-Anything-main-framework](images\\MainFramework.png)
+![Inpaint-Anything-main-framework](images/MainFramework.png)
 
 Unlike Inpaint Anything, it differs in:
 1. I added an Object detection layer at the beggining of the inference Pipeline, you just need to specify the wanted object in a prompt, with out choosing from cursor.
