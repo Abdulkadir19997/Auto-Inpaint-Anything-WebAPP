@@ -1,27 +1,32 @@
 # Auto-Inpaint-Anything-WebAPP
 This WebApp is an open-source project aimed at automizing the process of Inpainting Images and videos giving the same quality as [Inpaint-Anything](https://github.com/geekyutao/Inpaint-Anything). The reason I created this app is because let's say you need to remove 1000 objects from a galary using LaMa, if we try to do that using Inpaint ANything we will have to stop at every image and choose the objects point coordinates with cursor, which will make this process really hard. However, if we add an object detection layer at the beggining we can get point coordinates automatically with out any human interaction, you only need to specify the object's name and [GroundingDino](https://huggingface.co/docs/transformers/en/model_doc/grounding-dino) will detect it.
 
+
+It was inspired by [Inpaint-Anything](https://github.com/geekyutao/Inpaint-Anything). 
+![Inpaint-Anything](./images/images\MainFramework.png)
+Unlike Inpaint Anything, it differs in:
+1. I added an Object detection layer at the beggining of the inference Pipeline, you just need to specify the wanted object in a prompt, with out choosing from cursor.
+2. You can use the endpoints independently after using the dio_sam endpoint. Example: Use the dino_sam endpoint to get the segment objects first then if you use the fill_anything endpoint it will automatically get the segmented result and do the changes you asked for in the fill_prompt.
+3. If you integrate the API's correctly, you can automize the process of doing Inpainting without human interaction using cursor to define the point coords
+
+
 ### Here is a simple example of removing unwanted objects in an image:
-![demo](./images/demo.gif)
+![demo](./images/remove_objects.gif)
 
 
 ## This web APP has 4 endpoints:
-1. http://localhost:5004/app/demo/dino_sam
-2. http://localhost:5004/app/demo/remove_anything
-3. http://localhost:5004/app/demo/replace_anything
-4. http://localhost:5004/app/demo/fill_anything
+1. **http://localhost:5004/app/demo/dino_sam:** This part is powered using [GroundingDino](https://huggingface.co/docs/transformers/en/model_doc/grounding-dino) for object detection and [SAM](https://github.com/facebookresearch/segment-anything) for segmentation, this part is the most essential part to run the other endpoints. Before running anyt other endpoint start by request.post to dino_sam. Any request to other endpoint will use the responsed data from the last request to dino_sam.
+
+2. **http://localhost:5004/app/demo/remove_anything:** This part is powered using [LaMa](https://github.com/advimman/lama), 
+3. **http://localhost:5004/app/demo/replace_anything:**
+4. **http://localhost:5004/app/demo/fill_anything:**
 
 
 ## The front_end is only to showcase the results and shows you how to integrate the API's
 
 
 
-It was inspired by [Inpaint-Anything](https://github.com/geekyutao/Inpaint-Anything).
 
-Unlike Inpaint Anything, it differs in:
-1. I added an Object detection layer at the beggining of the inference Pipeline, you just need to specify the wanted object in a prompt, with out choosing from cursor.
-2. You can use the endpoints independently after using the dio_sam endpoint. Example: Use the dino_sam endpoint to get the segment objects first then if you use the fill_anything endpoint it will automatically get the segmented result and do the changes you asked for in the fill_prompt.
-3. If you integrate the API's correctly, you can automize 
 ## simple demo with [gradio](https://github.com/gradio-app/gradio)
 ![webui](./images/webui.png)
 ## Environment setup
