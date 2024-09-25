@@ -7,7 +7,7 @@ This WebApp is an open-source project aimed at automizing the process of Inpaint
 
 **It was inspired by [Inpaint-Anything](https://github.com/geekyutao/Inpaint-Anything). Unlike Inpaint Anything, it differs in:**
 1. I added an Object detection layer at the beggining of the inference Pipeline, you just need to specify the wanted object in a prompt, with out choosing from cursor.
-2. You can use the API endpoints independently after using the dino_sam endpoint. Example: Use the dino_sam endpoint to get the segment objects first then if you use the fill_anything endpoint it will automatically get the segmented result and do the changes you asked for in the fill_prompt.
+2. I integrated the provided Inpaint-Anything functionality into an API with 4 different endpoints to be used independently after using the dino_sam endpoint. Example: Use the dino_sam endpoint to get the segment objects first then if you use the fill_anything endpoint it will automatically get the segmented result and do the changes you asked for in the fill_prompt.
 3. If you integrate the API's correctly, you can automize the process of doing Inpainting without human interaction for thousands of different images.
 
 
@@ -161,12 +161,13 @@ Jobs are listed from highest to lowest match scores. Apply to the job of interes
 ## Notes
 To run locally, operate two different terminals each time: one with the 'auto_inpainter' environment to run 'streamlit run front_end.py', and another to execute 'uvicorn main:app --reload'.
 
-
 ## Acknowledgments
 Many thanks to these excellent opensource projects
 * [LaMA](https://github.com/saic-mdal/lama)
-* [LaMa with refiner](https://github.com/geomagical/lama-with-refiner)
-* [MaskDINO](https://github.com/IDEA-Research/MaskDINO)
-* [MaskDINO inference code](https://github.com/MeAmarP/MaskDINO/tree/quickfix/infer_demo)
-* [Detectron2](https://github.com/facebookresearch/detectron2)
-* [Auto-Lama](https://github.com/andy971022/auto-lama)
+* [GroundingDino](https://huggingface.co/docs/transformers/en/model_doc/grounding-dino))
+* [SAM](https://github.com/facebookresearch/segment-anything)
+* [Inpaint-Anything](https://github.com/geekyutao/Inpaint-Anything)
+
+## Version
+The current version is 1.0. Development is ongoing, and any support or suggestions are welcome. Please reach out to me:
+Abdulkadermousabasha7@gmail.com & LinkedIn
