@@ -3,7 +3,7 @@
 
 It was inspired by [Auto-LaMa](https://github.com/andy971022/auto-lama#readme).
 
-Unlike Auto-Lama, it differs in:
+Unlike Inpaint Anything, it differs in:
 1. Use the object instance segmentation model [MaskDINO](https://github.com/IDEA-Research/MaskDINO) instead of the object detection model [DETR](https://github.com/facebookresearch/detr).
 1. Use [LaMa with refiner](https://github.com/geomagical/lama-with-refiner) for better results.
 ## simple demo with [gradio](https://github.com/gradio-app/gradio)
@@ -13,19 +13,36 @@ A minimum of 12 gb memory gpu is required.
 1. Download pre-trained weights [MaskDINO](https://github.com/IDEA-Research/detrex-storage/releases/download/maskdino-v0.1.0/maskdino_swinl_50ep_300q_hid2048_3sd1_instance_maskenhanced_mask52.3ap_box59.0ap.pth) and [LaMa](https://disk.yandex.ru/d/ouP6l8VJ0HpMZg) 
 1. Put the directory like this
 ```
-  .root
-  ├─demo.py
-  ├─ckpt
-  │  ├──maskdino_swinl_50ep_300q_hid2048_3sd1_instance_maskenhanced_mask52.3ap_box59.0ap.pth
-  │  └─models
-  │      ├──config.yaml
-  │      └─models
-  │          └─best.ckpt
-  └─images
-       ├──buildings.png
-       ├──cat.png
-       └──park.png     
+├── app
+│   ├── ai_services
+│   │   ├── get_fill_anything_result.py
+│   │   ├── get_remove_anything_result.py
+│   │   ├── get_replace_anything_result.py
+│   │   ├── get_segmented_image.py
+│   ├── routes
+│   │   ├── dino_sam.py
+│   │   ├── fill_anything.py
+│   │   ├── remove_anything.py
+│   │   ├── replace_anything.py
+│   ├── schemas
+│   │   ├── response_bodies.py
+├── config.py
+├── front_end.py
+├── gdino_sam
+│   ├── get_point_coords.py
+│   ├── get_segmentation_masks.py
+│   ├── __init__.py
+├──inpaint_anything
+├── images
+│   ├── demo.gif
+├── main.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+├── LICENSE
+├── __init__.py
 ```
+
 3. conda environment setup
 ```
 conda create --name maskdino python=3.8 -y
