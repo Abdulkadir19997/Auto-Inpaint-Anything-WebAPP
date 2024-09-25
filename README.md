@@ -18,16 +18,13 @@ Here is a simple example of removing unwanted objects in an image:
 1. **http://localhost:5004/app/demo/dino_sam:** This part is powered using [GroundingDino](https://huggingface.co/docs/transformers/en/model_doc/grounding-dino) for object detection and [SAM](https://github.com/facebookresearch/segment-anything) for segmentation, this part is the most essential part to run the other endpoints. Before running anyt other endpoint start by request.post to dino_sam. Any request to other endpoint will use the responsed data from the last request to dino_sam.
 
 **Here is some examples of how to run this endpoint:**
-- first you need to attach your image that you want to segment, and write the name of the object you want to segment:
-![person](images/person_segment.png)
-![hair](images/hair_segment.png)
-![shirt](images/shirt_segment.png)
-![pants](images/pants_segment.png)
-![dog](images/dog_segment.png)
+- First you need to attach your image that you want to segment, and write the name of the object you want to segment, then push the Detect and Segment objects button:
+![Detect and Segment the wanted object](images/segmentation.gif)
 
 2. **http://localhost:5004/app/demo/remove_anything:** This part is powered using [LaMa](https://github.com/advimman/lama), it takes the segmented part and removes it from the images using Inpainting with Fourier Convolutions. Make sure to keep the value of dilation on the segmented image as 15, if you want to you can change the value from the config file. 
 
 **Here is some examples of how to run this endpoint:**
+![Push the Remove Detected object button](images/remove_objects.gif)
 
 3. **http://localhost:5004/app/demo/replace_anything:** This part is powered using the [stabilityai/stable-diffusion-2-inpainting](https://huggingface.co/stabilityai/stable-diffusion-2-inpainting), make sure to not dilate the segmented image to get the best result, this part keep the segmented object and changes the background depending on the given prompt.
 
