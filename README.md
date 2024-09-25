@@ -3,7 +3,7 @@ This WebApp is an open-source project aimed at automizing the process of Inpaint
 
 
 It was inspired by [Inpaint-Anything](https://github.com/geekyutao/Inpaint-Anything). 
-![Inpaint-Anything-framework]images/images\MainFramework.png)
+![Inpaint-Anything-framework](images/images\MainFramework.png)
 Unlike Inpaint Anything, it differs in:
 1. I added an Object detection layer at the beggining of the inference Pipeline, you just need to specify the wanted object in a prompt, with out choosing from cursor.
 2. You can use the endpoints independently after using the dio_sam endpoint. Example: Use the dino_sam endpoint to get the segment objects first then if you use the fill_anything endpoint it will automatically get the segmented result and do the changes you asked for in the fill_prompt.
