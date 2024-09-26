@@ -143,17 +143,17 @@ Open a new terminal inside the 'AI-Job-Finder' folder and activate the 'auto_inp
 In the second terminal with the 'auto_inpainter' environment active, start the FastAPI service with:
 
 ```bash
-uvicorn main:app --reload
+uvicorn main:app --host 127.0.0.1 --port 5004 --reload
 ```
 
 
 ## Notes
-To run locally, operate two different terminals each time: one with the 'auto_inpainter' environment to run 'streamlit run front_end.py', and another to execute 'uvicorn main:app --reload'.
+To run locally, operate two different terminals each time: one with the 'auto_inpainter' environment to run 'streamlit run front_end.py', and another to execute 'uvicorn main:app --host 127.0.0.1 --port 5004 --reload'.
 
 ## Acknowledgments
 Many thanks to these excellent opensource projects
 * [LaMA](https://github.com/saic-mdal/lama)
-* [GroundingDino](https://huggingface.co/docs/transformers/en/model_doc/grounding-dino))
+* [GroundingDino](https://huggingface.co/docs/transformers/en/model_doc/grounding-dino)
 * [SAM](https://github.com/facebookresearch/segment-anything)
 * [Inpaint-Anything](https://github.com/geekyutao/Inpaint-Anything)
 
