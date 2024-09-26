@@ -139,6 +139,7 @@ streamlit run front_end.py
 
 Open a new terminal inside the 'Automated-Inpaint-Anything' folder and activate the 'auto_inpainter' environment again:
 
+
 **For Winows**
 ```bash
 .\auto_inpainter\Scripts\activate
