@@ -146,17 +146,6 @@ In the second terminal with the 'auto_inpainter' environment active, start the F
 uvicorn main:app --reload
 ```
 
-### Step 9: Start the Application
-
-Fill in the required fields and hit the start button to gather all the job listings for the specified job title and location, sorted by match scores against your uploaded CV.
-
-![Alt text](images/request_input_data.png)
-
-### Step 10: Try the API's using front_end 
-
-Jobs are listed from highest to lowest match scores. Apply to the job of interest by clicking on the "apply" button.
-
-![Apply to Jobs](images/prediction_results.png)
 
 ## Notes
 To run locally, operate two different terminals each time: one with the 'auto_inpainter' environment to run 'streamlit run front_end.py', and another to execute 'uvicorn main:app --reload'.
