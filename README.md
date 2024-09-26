@@ -103,9 +103,14 @@ python -m venv auto_inpainter
 ### Step 3: Activate Environment
 
 Activate the environment with:
-
+**For Windows**
 ```bash
 .\auto_inpainter\Scripts\activate
+```
+
+**For Linux**
+```bash
+source auto_inpaint/bin/activate
 ```
 
 ### Step 4: Install Requirements
@@ -132,10 +137,16 @@ streamlit run front_end.py
 
 ### Step 7: Open a New Terminal Session
 
-Open a new terminal inside the 'AI-Job-Finder' folder and activate the 'auto_inpainter' environment again:
+Open a new terminal inside the 'Automated-Inpaint-Anything' folder and activate the 'auto_inpainter' environment again:
 
+**For Winows**
 ```bash
 .\auto_inpainter\Scripts\activate
+```
+
+**For Linux**
+```bash
+source auto_inpaint/bin/activate
 ```
 
 ### Step 8: Run FastAPI
